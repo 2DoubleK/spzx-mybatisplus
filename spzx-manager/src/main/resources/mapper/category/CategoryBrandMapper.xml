@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.spzx.manager.mapper.CategoryBrandMapper">
+
+    <!-- 查询分类品牌关联列表 -->
+    <select id="queryCBs" resultType="com.atguigu.spzx.model.entity.product.CategoryBrand">
+        select cb.id,
+        cb.category_id as categoryId,
+        cb.brand_id    as brandId,
+        cb.create_time as createTime,
+        c.name         as categoryName,
+        b.name         as brandName,
+        b.logo         as logo
+        from category_brand cb
+        inner join category c on c.id = cb.category_id
+        inner join brand b on b.id = cb.brand_id
+        <where>
+            cb.is_deleted = 0
+            <if test="categoryId != null">
+                and cb.category_id = #{categoryId}
+            </if>
+            <if test="brandId != null">
+                and cb.brand_id = #{brandId}
+            </if>
+        </where>
+        limit #{offset}, #{limit}
+    </select>
+
+    <!-- 统计总数： -->
+    <select id="countNums" resultType="java.lang.Integer">
+        select count(*) from category_brand cb
+        <where>
+            cb.is_deleted = 0
+            <if test="categoryId != null">
+                and cb.category_id = #{categoryId}
+            </if>
+            <if test="brandId != null">
+                and cb.brand_id = #{brandId}
+            </if>
+        </where>
+    </select>
+    <select id="findBrandByCategoryId" resultType="com.atguigu.spzx.model.entity.product.Brand">
+        select
+        b.* from category_brand cb left join brand b on  cb.brand_id=b.id
+            where category_id =#{categoryId} and cb.is_deleted=0 order by cb.id desc;
+    </select>
+
+</mapper>

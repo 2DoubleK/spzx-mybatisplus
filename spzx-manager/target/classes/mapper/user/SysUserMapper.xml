@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.spzx.manager.mapper.SysUserMapper">
+
+    <!-- 用于select查询公用抽取的列字段 -->
+    <sql id="columns">
+        id,username userName ,password,name,phone,avatar,description,status,create_time,update_time,is_deleted
+    </sql>
+<!--    查询id位xx的用户所具有的权限-->
+    <select id="selectUserRightsById" resultType="com.atguigu.spzx.model.entity.system.SysRole">
+        select sr.id, sr.role_code, sr.role_name
+        from sys_role sr
+                 inner join sys_user_role sur on sr.id = sur.role_id
+        where sur.user_id = #{userId}
+    </select>
+<!--    查询id位xx的用户所具有的菜单数据-->
+    <select id="selectMenuByUserId" resultType="com.atguigu.spzx.model.entity.system.SysMenu">
+        select distinct m.*
+        from sys_menu
+                 inner join sys_role_menu rm on rm.menu_id = m.id
+                 inner join sys_user_role ur on ur.role_id = rm.role_id
+        where ur.user_id = #{userId}
+    </select>
+
+
+</mapper>

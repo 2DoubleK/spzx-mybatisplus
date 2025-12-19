@@ -1,0 +1,63 @@
+server:
+  port: 8501
+spring:
+  # 数据库配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/db_spzx?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+  # Redis配置
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+#      password: ""
+      database: 0
+      timeout: 10000ms
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 1
+
+# MyBatis-Plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*/*.xml  # 映射文件路径
+  global-config:
+    db-config:
+      id-type: auto  # 主键自增策略
+  configuration:
+    map-underscore-to-camel-case: true  # 下划线转驼峰
+    cache-enabled: false  # 关闭二级缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 改回直接输出到控制台（最稳定的SQL打印方式）
+
+# 日志配置（核心修改：开启SQL打印）
+logging:
+  level:
+    # 关键1：给你的Mapper接口包路径设置DEBUG级别（替换为你实际的Mapper包名）
+    com.atguigu.spzx.manager.mapper: DEBUG
+    # 关键2：MyBatis核心类的日志级别设为DEBUG（可选，增强SQL日志详情）
+    org.apache.ibatis: DEBUG
+    # 屏蔽不必要的警告（保留）
+    com.baomidou.mybatisplus.core.toolkit.support: ERROR
+  # 可选：指定日志输出格式（方便查看SQL）
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
+minio:
+  endpoint: http://169.254.19.248:9000  # 你的MinIO服务地址
+  access-key: minioadmin                # MinIO账号
+  secret-key: minioadmin                # MinIO密码
+  bucket-name: spzx                     # 目标桶名
+spzx:
+  auth:
+    noAuthUrls:
+      - /admin/system/index/login  # 添加登录接口到白名单
+      - /admin/system/index/getUserInfo
+      - /admin/system/index/generateValidateCode
+      - /admin/system/index/logout
+      - /doc.html              # Swagger文档首页
+      - /webjars/**            # Swagger静态资源
+      - /v3/api-docs/**        # OpenAPI接口文档
+      - /swagger-resources/**  # Swagger资源清单
