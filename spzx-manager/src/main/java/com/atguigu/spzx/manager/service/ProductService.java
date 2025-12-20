@@ -13,4 +13,10 @@ public interface ProductService extends IService<Product> {
     Result updateProductById(Product product);
 
     Result deleteProductById(Long id);
+
+    Result getProductById(Long id);
+
+    void updateAuditStatus(Long id, Integer auditStatus);
+
+    void updateStatus(Long id, Integer status);
 }

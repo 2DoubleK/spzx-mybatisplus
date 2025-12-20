@@ -41,6 +41,7 @@ public class ProductSpecController {
         return productSpecService.deleteBrand(id);
     }
 
+    //查询所有商品规格接口
     @GetMapping("findAll")
     public Result findAll() {
         List<ProductSpec> list = productSpecService.findAll();

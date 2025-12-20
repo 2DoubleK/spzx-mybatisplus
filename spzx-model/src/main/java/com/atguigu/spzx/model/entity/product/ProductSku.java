@@ -1,6 +1,7 @@
 package com.atguigu.spzx.model.entity.product;
 
 import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Data
 @Schema(description = "ProductSku")
+@TableName("product_sku")
 public class ProductSku extends BaseEntity {
 
 	@Schema(description = "商品编号")

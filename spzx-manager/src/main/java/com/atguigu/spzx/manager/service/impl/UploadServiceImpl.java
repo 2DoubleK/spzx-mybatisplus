@@ -19,6 +19,12 @@ public class UploadServiceImpl implements UploadFileService {
             return minioUtils.uploadFile(file, UploadAddr.USER_IMG.getPrefix());
         } else if (type == 2) {//品牌图片上传
             return minioUtils.uploadFile(file, UploadAddr.BRAND_IMG.getPrefix());
+        }else if(type == 3){
+            return minioUtils.uploadFile(file, UploadAddr.PRODUCT_IMGS.getPrefix());
+        }else if(type == 4){
+            return minioUtils.uploadFile(file, UploadAddr.PRODUCT_SKU.getPrefix());
+        }else if(type == 5){
+            return minioUtils.uploadFile(file, UploadAddr.PRODUCT_DETAILS.getPrefix());
         }
         return UploadAddr.UNKNOWTYPE.getPrefix();
     }

@@ -19,6 +19,7 @@ public class ProductUnitController {
     @Autowired
     private ProductUnitService productUnitService;
 
+    //获取商品单元所有信息
     @GetMapping("findAll")
     public Result<List<ProductUnit>> findAll() {
         List<ProductUnit> productUnitList = productUnitService.findAll();

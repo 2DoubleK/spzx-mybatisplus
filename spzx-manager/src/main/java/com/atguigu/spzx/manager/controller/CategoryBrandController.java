@@ -45,6 +45,7 @@ public class CategoryBrandController {
         return categoryBrandService.deleteCB(id);
     }
 
+    //根据分类查询品牌数据
     @GetMapping("/findBrandByCategoryId/{categoryId}")
     public Result findBrandByCategoryId(@PathVariable Long categoryId) {
         List<Brand> brandList = categoryBrandService.findBrandByCategoryId(categoryId);
