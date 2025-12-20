@@ -1,6 +1,7 @@
 package com.atguigu.spzx.model.entity.base;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -25,6 +26,7 @@ public class BaseEntity implements Serializable {
     private Date updateTime;
 
     @Schema(description = "是否删除")
+    @TableField(value = "is_deleted") // 数据库字段名
     private Integer isDeleted;
 
 }

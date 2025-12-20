@@ -1,6 +1,8 @@
 package com.atguigu.spzx.model.entity.order;
 
 import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -9,7 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Schema(description = "OrderInfo")
+@Schema(description = "订单实体类")
+@TableName("order_info") // 指定数据库表名
 public class OrderInfo extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -83,7 +86,9 @@ public class OrderInfo extends BaseEntity {
 	@Schema(description = "取消订单原因")
 	private String cancelReason;
 
+	// 非数据库表字段：订单项列表（使用exist=false标注）
 	@Schema(description = "订单项列表")
+	@TableField(exist = false)
 	private List<OrderItem> orderItemList;
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.spzx.manager.mapper.order.OrderInfoMapper">
+
+    <insert id="test" useGeneratedKeys="true"  keyProperty="id">
+    </insert>
+    <resultMap id="orderStatistics" type="com.atguigu.spzx.model.entity.order.OrderStatistics" autoMapping="true">
+
+    </resultMap>
+<!--    統計前一天的金額-->
+    <!-- 统计指定日期的订单总金额和总数量（整体） -->
+    <select id="selectStatisticsByDate" resultMap="orderStatistics">
+        SELECT
+        DATE_FORMAT(o.create_time, '%Y-%m-%d') AS orderDate,
+        SUM(o.total_amount) AS totalAmount,
+        COUNT(o.id) AS totalNum
+        FROM
+        order_info o
+        WHERE
+        o.is_deleted = 0
+        AND DATE_FORMAT(o.create_time, '%Y-%m-%d') = #{osDate}
+        GROUP BY
+        DATE_FORMAT(o.create_time, '%Y-%m-%d')
+    </select>
+
+
+</mapper>
