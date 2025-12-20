@@ -6,11 +6,11 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ProductSkuMapper extends BaseMapper<ProductSku> {
-    void saveProductSku(ProductSku productSku);
+    void insertSku(ProductSku sku);
 
-    void updateProductSku(ProductSku productSku);
+    void updateSku(ProductSku sku);
 
-    void deleteProductSkuByProductId(Long productId);
+    void deleteSkuLogical(Long id);
 
-    void deleteProductSku(Long id);
+    void deleteSkuByProductIdLogical(Long productId);
 }

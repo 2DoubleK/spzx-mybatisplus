@@ -12,9 +12,9 @@ public interface ProductMapper extends BaseMapper<Product> {
 
     Integer countNumPageWhere(Long offset, Long limit, Long brandId, Long category1Id, Long category2Id, Long category3Id);
 
-    void saveProduct(Product product);
+    void insertProduct(Product product);
 
     void updateProduct(Product product);
 
-    void deleteProduct(Long id);
+    void deleteProductLogical(Long id);
 }

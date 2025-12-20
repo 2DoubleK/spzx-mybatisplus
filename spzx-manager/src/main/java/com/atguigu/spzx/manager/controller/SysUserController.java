@@ -1,5 +1,6 @@
 package com.atguigu.spzx.manager.controller;
 
+import com.atguigu.spzx.common.log.anotation.Log;
 import com.atguigu.spzx.manager.service.SysUserService;
 import com.atguigu.spzx.model.dto.system.AssginRoleDto;
 import com.atguigu.spzx.model.dto.system.SysUserDto;
@@ -20,6 +21,7 @@ public class SysUserController {
 
     @Operation(summary = "分页查询用户")
     @PostMapping("/findByPage/{current}/{limit}")  // 改为 POST 方法
+    @Log(title="分页查询用户",businessType = 1,isSaveRequestData = false,isSaveResponseData = false)
     public Result<?> findByPage(
             @PathVariable("current") Integer current,
             @PathVariable("limit") Integer limit,

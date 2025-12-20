@@ -3,42 +3,29 @@
 <mapper namespace="com.atguigu.spzx.manager.mapper.ProductDetailsMapper">
 
 
-    <insert id="saveProductDetails">
-        insert into product_details (
-        product_id,
-        image_urls,
-        create_time,
-        update_time,
-        is_deleted
-        ) values (
-        #{productId},
-        #{imageUrls},
-        now(),
-        now(),
-        0
-        )
-    </insert>
-
-    <update id="updateProductDetails">
-        update product_details
-        <set>
-            <if test="imageUrls != null and imageUrls != ''">
-                image_urls = #{imageUrls},
-            </if>
-            update_time = now()
-        </set>
-        where product_id = #{productId}
-    </update>
-
-    <update id="deleteProductDetailsByProductId">
-        update product_details set is_deleted = 1, update_time = now() where product_id = #{productId}
-    </update>
-
     <update id="updateImgsById">
         update product_details pd
         set pd.image_urls =#{urls},
             pd.is_deleted = 0
         where product_id = #{product_id};
+    </update>
+
+    <insert id="insertDetails">
+        insert into product_details (
+        product_id, image_urls, create_time, update_time, is_deleted
+        ) values (
+        #{productId}, #{imageUrls}, now(), now(), 0
+        )
+    </insert>
+
+    <update id="updateDetails">
+        update product_details
+        set image_urls = #{imageUrls}, update_time = now()
+        where product_id = #{productId}
+    </update>
+
+    <update id="deleteDetailsByProductIdLogical">
+        update product_details set is_deleted = 1, update_time = now() where product_id = #{productId}
     </update>
 
 </mapper>

@@ -42,7 +42,6 @@ public class IndexController {
     @Operation(summary = "用户信息查询接口") //用于接口方法，描述单个接口作用
     @GetMapping("getUserInfo")
     public Result getUserInfo() {
-
         return Result.build(AuthContextUtil.get(), ResultCodeEnum.SUCCESS);
     }
 //    @GetMapping("getUserInfo")

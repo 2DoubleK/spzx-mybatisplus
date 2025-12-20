@@ -1,10 +1,13 @@
 package com.atguigu.spzx.model.entity.system;
 
 import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
+@TableName("sys_oper_log")
 @Schema(description = "SysOperLog")
 public class SysOperLog extends BaseEntity {
 
@@ -19,7 +22,12 @@ public class SysOperLog extends BaseEntity {
 	@Schema(description = "请求方式")
 	private String requestMethod;
 
-	private Integer businessType ;			// 业务类型（0其它 1新增 2修改 3删除）
+	/**
+	 * 业务类型（0其它 1新增 2修改 3删除）
+	 * 数据库表中不存在该字段，标记为不参与数据库映射
+	 */
+	@TableField(exist = false)
+	private Integer businessType;
 
 	@Schema(description = "操作类别（0其它 1后台用户 2手机端用户）")
 	private String operatorType;

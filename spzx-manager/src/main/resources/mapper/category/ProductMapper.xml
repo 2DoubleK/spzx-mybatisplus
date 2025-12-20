@@ -50,83 +50,38 @@
         order by p.id desc
     </select>
 
-
-    <insert id="saveProduct" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertProduct" useGeneratedKeys="true" keyProperty="id">
         insert into product (
-        name,
-        brand_id,
-        category1_id,
-        category2_id,
-        category3_id,
-        unit_name,
-        slider_urls,
-        spec_value,
-        status,
-        audit_status,
-        audit_message,
-        create_time,
-        update_time,
-        is_deleted
+        name, brand_id, category1_id, category2_id, category3_id,
+        unit_name, slider_urls, spec_value, status, audit_status,
+        audit_message, create_time, update_time, is_deleted
         ) values (
-        #{name},
-        #{brandId},
-        #{category1Id},
-        #{category2Id},
-        #{category3Id},
-        #{unitName},
-        #{sliderUrls},
-        #{specValue},
-        #{status},
-        #{auditStatus},
-        #{auditMessage},
-        now(),
-        now(),
-        0
+        #{name}, #{brandId}, #{category1Id}, #{category2Id}, #{category3Id},
+        #{unitName}, #{sliderUrls}, #{specValue}, #{status}, #{auditStatus},
+        #{auditMessage}, now(), now(), 0
         )
     </insert>
 
     <update id="updateProduct">
         update product
         <set>
-            <if test="name != null and name != ''">
-                name = #{name},
-            </if>
-            <if test="brandId != null">
-                brand_id = #{brandId},
-            </if>
-            <if test="category1Id != null">
-                category1_id = #{category1Id},
-            </if>
-            <if test="category2Id != null">
-                category2_id = #{category2Id},
-            </if>
-            <if test="category3Id != null">
-                category3_id = #{category3Id},
-            </if>
-            <if test="unitName != null and unitName != ''">
-                unit_name = #{unitName},
-            </if>
-            <if test="sliderUrls != null and sliderUrls != ''">
-                slider_urls = #{sliderUrls},
-            </if>
-            <if test="specValue != null and specValue != ''">
-                spec_value = #{specValue},
-            </if>
-            <if test="status != null">
-                status = #{status},
-            </if>
-            <if test="auditStatus != null">
-                audit_status = #{auditStatus},
-            </if>
-            <if test="auditMessage != null and auditMessage != ''">
-                audit_message = #{auditMessage},
-            </if>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="brandId != null">brand_id = #{brandId},</if>
+            <if test="category1Id != null">category1_id = #{category1Id},</if>
+            <if test="category2Id != null">category2_id = #{category2Id},</if>
+            <if test="category3Id != null">category3_id = #{category3Id},</if>
+            <if test="unitName != null and unitName != ''">unit_name = #{unitName},</if>
+            <if test="sliderUrls != null and sliderUrls != ''">slider_urls = #{sliderUrls},</if>
+            <if test="specValue != null and specValue != ''">spec_value = #{specValue},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="auditStatus != null">audit_status = #{auditStatus},</if>
+            <if test="auditMessage != null and auditMessage != ''">audit_message = #{auditMessage},</if>
             update_time = now()
         </set>
         where id = #{id}
     </update>
 
-    <update id="deleteProduct">
+    <update id="deleteProductLogical">
         update product set is_deleted = 1, update_time = now() where id = #{id}
     </update>
 

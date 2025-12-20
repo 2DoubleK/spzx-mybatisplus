@@ -18,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -65,7 +63,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         //1.保存商品信息
         product.setStatus(0);
         product.setAuditStatus(0);
-        productMapper.saveProduct(product);
+        productMapper.insertProduct(product);
         //2.获取商品的sku列表，保存到product_sku表里
         List<ProductSku> productSkuList = product.getProductSkuList();
         if (productSkuList != null && !productSkuList.isEmpty()) {
@@ -76,14 +74,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                 item.setSkuName(product.getName() + item.getSkuSpec());
                 item.setStatus(0);
                 item.setSaleNum(0);
-                productSkuMapper.saveProductSku(item);
+                productSkuMapper.insertSku(item);
             }
         }
         //3.保存商品详情数据
         ProductDetails productDetails = new ProductDetails();
         productDetails.setProductId(product.getId());
         productDetails.setImageUrls(product.getDetailsImageUrls());
-        productDetailsMapper.saveProductDetails(productDetails);
+        productDetailsMapper.insertDetails(productDetails);
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
@@ -101,7 +99,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                     .eq("is_deleted", 0));
             for (ProductSku sku : productSkus) {
                 if (sku.getId() != null) {
-                    productSkuMapper.updateProductSku(sku);
+                    productSkuMapper.updateSku(sku);
                 } else {
                     String productSkuCode = product.getId() + "_" + UUID.randomUUID().toString().substring(0, 6);
                     sku.setSkuCode(productSkuCode);
@@ -109,7 +107,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                     sku.setSkuName(product.getName() + sku.getSkuSpec());
                     sku.setStatus(0);
                     sku.setSaleNum(0);
-                    productSkuMapper.saveProductSku(sku);
+                    productSkuMapper.insertSku(sku);
                 }
             }
             for (ProductSku dbSku : dbSkus) {
@@ -121,7 +119,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                     }
                 }
                 if (!found) {
-                    productSkuMapper.deleteProductSku(dbSku.getId());
+                    productSkuMapper.deleteSkuLogical(dbSku.getId());
                 }
             }
         }
@@ -129,7 +127,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         ProductDetails productDetails = new ProductDetails();
         productDetails.setProductId(product.getId());
         productDetails.setImageUrls(product.getDetailsImageUrls());
-        productDetailsMapper.updateProductDetails(productDetails);
+        productDetailsMapper.updateDetails(productDetails);
         
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
@@ -138,13 +136,13 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Transactional(rollbackFor = Exception.class)
     public Result deleteProductById(Long id) {
         //删除product
-        productMapper.deleteProduct(id);
+        productMapper.deleteProductLogical(id);
 
         //删除productSku
-        productSkuMapper.deleteProductSkuByProductId(id);
+        productSkuMapper.deleteSkuByProductIdLogical(id);
 
         //删除productDetails
-        productDetailsMapper.deleteProductDetailsByProductId(id);
+        productDetailsMapper.deleteDetailsByProductIdLogical(id);
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 

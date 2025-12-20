@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ProductDetailsMapper extends BaseMapper<ProductDetails> {
-    void saveProductDetails(ProductDetails productDetails);
-
-    void updateProductDetails(ProductDetails productDetails);
-
-    void deleteProductDetailsByProductId(Long productId);
-
     void updateImgsById(@Param("urls") String urls, @Param("product_id") Long product_id);
+
+    void insertDetails(ProductDetails details);
+
+    void updateDetails(ProductDetails details);
+
+    void deleteDetailsByProductIdLogical(Long productId);
 }

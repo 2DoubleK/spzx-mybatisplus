@@ -12,6 +12,7 @@
         <module>spzx-common</module>
         <module>spzx-manager</module>
         <module>spzx-model</module>
+        <module>spzx-common/common-log</module>
     </modules>
 
     <parent>
