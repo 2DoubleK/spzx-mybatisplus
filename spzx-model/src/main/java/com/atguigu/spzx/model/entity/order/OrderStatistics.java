@@ -15,6 +15,7 @@ public class OrderStatistics extends BaseEntity {
     // 补充数据库表中存在的字段：省份编码（原实体类缺失）
     @TableField("province_code")
     private String provinceCode;
+    @TableField("order_date")
     private Date orderDate;
     private BigDecimal totalAmount;
     private Integer totalNum;
