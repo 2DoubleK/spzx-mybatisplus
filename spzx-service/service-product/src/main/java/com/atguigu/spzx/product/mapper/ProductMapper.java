@@ -10,4 +10,8 @@ import java.util.List;
 @Mapper
 public interface ProductMapper extends BaseMapper<Product> {
     List<ProductSku> findProductSkuBySaleNum10();
+
+    List<Product> findFindPageWhere(Long offset, Long limit, Long brandId, Long category1Id, Long category2Id, Long category3Id);
+
+    Integer countNumPageWhere(Long offset, Long limit, Long brandId, Long category1Id, Long category2Id, Long category3Id);
 }
