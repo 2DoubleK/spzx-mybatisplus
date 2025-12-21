@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class LogUtil {
 
-    //操作执行之后调用
+    //操作执行之后调用,獲取日志信息封裝進日志信息實體類
     public static void afterHandlLog(Log sysLog, Object proceed,
                                      SysOperLog sysOperLog, int status ,
                                      String errorMsg) {

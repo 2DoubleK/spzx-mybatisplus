@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
 
 @Target( {ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
+//我們可以僅對要修改數據的進行寫入插入數據庫
 public @interface Log {
     public String title() ;								// 模块名称
     public OperatorType operatorType() default OperatorType.MANAGE;	// 操作人类别

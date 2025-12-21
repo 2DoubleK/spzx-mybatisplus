@@ -21,7 +21,7 @@ public class SysUserController {
 
     @Operation(summary = "分页查询用户")
     @PostMapping("/findByPage/{current}/{limit}")  // 改为 POST 方法
-    @Log(title="分页查询用户",businessType = 1,isSaveRequestData = false,isSaveResponseData = false)
+    @Log(title="分页查询用户",businessType = 1,isSaveRequestData = false,isSaveResponseData = false) //方法名、類型、是否保存請求參數、是否保存數據
     public Result<?> findByPage(
             @PathVariable("current") Integer current,
             @PathVariable("limit") Integer limit,

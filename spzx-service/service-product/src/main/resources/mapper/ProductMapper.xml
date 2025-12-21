@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.spzx.product.mapper.ProductMapper">
+
+    <select id="findProductSkuBySaleNum10" resultType="com.atguigu.spzx.model.entity.product.ProductSku">
+        SELECT psk.*
+        FROM product_sku psk
+                 INNER JOIN product p ON p.id = psk.product_id
+        WHERE psk.is_deleted = 0
+          AND p.status = 1
+          AND psk.is_deleted=0
+        ORDER BY psk.sale_num LIMIT 0,10;
+    </select>
+</mapper>

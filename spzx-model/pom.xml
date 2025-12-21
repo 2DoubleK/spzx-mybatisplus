@@ -49,10 +49,10 @@
             <optional>true</optional>
         </dependency>
         <!-- Spring Web 依赖（用于接口开发） -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
