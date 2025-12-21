@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="日志接口">
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/anotation/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/aspect/LogAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/enums/OperatorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/mapper/AsyncOperLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/service/AsyncOperLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/service/impl/AsyncOperLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/util/LogUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/SysUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductDetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductDetailsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductSkuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/mapper/ProductSkuMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductDetailsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductDetailsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductSkuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/resources/mapper/category/ProductSkuMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/ManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/ManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/ManagerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/ManagerApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/Constant.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/EasyExcelListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/EasyExcelListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/MenuHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/Utils/MenuHelper.class" afterDir="false" />
@@ -82,14 +64,6 @@
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/UploadServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/UploadServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/ValidateCodeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/ValidateCodeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductDetailsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductDetailsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductSkuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/mapper/category/ProductSkuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/system/SysOperLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/system/SysOperLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/BaseEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderStatistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysOperLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysOperLog.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +189,7 @@
       <workItem from="1766236423190" duration="310000" />
       <workItem from="1766236750395" duration="165000" />
       <workItem from="1766236934126" duration="677000" />
+      <workItem from="1766291907348" duration="691000" />
     </task>
     <task id="LOCAL-00001" summary="xxx">
       <created>1766134788261</created>
