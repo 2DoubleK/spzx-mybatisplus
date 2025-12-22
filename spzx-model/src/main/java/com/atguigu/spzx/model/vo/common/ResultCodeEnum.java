@@ -17,6 +17,9 @@ public enum ResultCodeEnum {
 
     STOCK_LESS( 219, "库存不足"),
     USER_NAME_IS_NOT_EXISTS(210 , "用户名不存在"),
+    USER_PHONE_IS_EXISTS(222 , "该电话已经被注册"),
+    PASSWORD_WRONG(233 , "密码错误！"),
+
     ;
 
     private Integer code ;      // 业务状态码

@@ -1,7 +1,7 @@
 package com.atguigu.spzx.user.controller;
 
 import com.atguigu.spzx.model.vo.common.Result;
-import com.atguigu.spzx.user.service.UserService;
+import com.atguigu.spzx.user.service.UserInfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name="短信接口")
 public class MessageController {
     @Autowired
-    private UserService userService;
+    private UserInfoService userService;
     @GetMapping("/sendCode/{phone}")
     @Operation(summary = "短信发送")
     public Result sendMessage(@PathVariable("phone")Long phone){

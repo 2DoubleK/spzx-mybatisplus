@@ -31,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.atguigu.spzx.manager.Utils.Constant.USER_LOGIN_TOKEN;
 import static com.atguigu.spzx.manager.Utils.Constant.USER_VALIDATE_CODE;
+import static com.atguigu.spzx.utils.MD5Utils.MD5Encrypted;
 
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
@@ -65,7 +66,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         //比对密码是否一致
         String database_password = sysUser.getPassword();
         String input_password = loginDto.getPassword();
-        input_password = DigestUtils.md5DigestAsHex(input_password.getBytes());
+        input_password = MD5Encrypted(input_password);
         //密码不一致
         if (!input_password.equals(database_password)) {
             throw new GuiguException(ResultCodeEnum.LOGIN_ERROR);
@@ -125,7 +126,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         }
         //对密码进行加密
         String password = sysUser.getPassword();
-        String digestPassword = DigestUtils.md5DigestAsHex(password.getBytes()); //该方法接收的是byte
+        String digestPassword =MD5Encrypted(password); //该方法接收的是byte
         sysUser.setPassword(digestPassword);
         sysUser.setStatus(0);
         save(sysUser);
