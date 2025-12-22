@@ -1,6 +1,5 @@
 server:
   port: 8512  # 服务端口
-
 spring:
   application:
     name: service-user  # Nacos服务名称（服务注册与发现的标识）
