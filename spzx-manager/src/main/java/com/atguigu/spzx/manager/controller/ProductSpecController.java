@@ -6,6 +6,7 @@ import com.atguigu.spzx.model.entity.product.ProductSpec;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/product/productSpec")
+@Tag(name="商品規格")
 public class ProductSpecController {
     @Autowired
     private ProductSpecService productSpecService;

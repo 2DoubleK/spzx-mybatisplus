@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="商品搜索">
+    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="商品搜索-修复">
+      <change afterPath="$PROJECT_DIR$/spzx-common/common-util/src/main/java/com/atguigu/spzx/utils/HttpUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/constants/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/UserApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/mapper/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/atguigu/spzx/product/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/mapper/ProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/mapper/ProductMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/mapper/ProductSkuMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/mapper/ProductSkuMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/config/Knife4jConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/config/Knife4jConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-util/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/CategoryBrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/CategoryBrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/ProductSpecController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/ProductSpecController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/SysRoleMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/SysRoleMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/order/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/controller/order/OrderInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-server-gateway/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-server-gateway/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-server-gateway/target/classes/com/atguigu/spzx/gateway/GateWayApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-server-gateway/target/classes/com/atguigu/spzx/gateway/GateWayApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,30 +67,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java_idea_project/SpringProject/spzx-parent/spzx-service-client&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.19635099&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;dc5e3943ec0e4d68013ea5c49333febd&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17 (2)",
+    "last_opened_file_path": "D:/java_idea_project/SpringProject/spzx-parent/spzx-service/service-user/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.19635099",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "spring.configuration.checksum": "dc5e3943ec0e4d68013ea5c49333febd",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -90,11 +99,11 @@
       <recent name="com.atguigu.spzx.manager.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-user\src\main\resources" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service-client" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-server-gateway" />
-      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-manager\src\main\resources\mapper\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-server-gateway\src\main\resources" />
@@ -114,7 +123,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.spzx-prodcut">
+  <component name="RunManager" selected="Spring Boot.spzx-user">
     <configuration name="spzx-manager" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spzx-manager" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.manager.ManagerApplication" />
@@ -136,9 +145,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="spzx-user" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.user.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Spring Boot.spzx-manager" />
       <item itemvalue="Spring Boot.spzx-prodcut" />
+      <item itemvalue="Spring Boot.spzx-user" />
       <item itemvalue="Spring Boot.spzx-server-gateway" />
     </list>
   </component>
@@ -175,7 +192,7 @@
       <workItem from="1766236934126" duration="677000" />
       <workItem from="1766291907348" duration="16126000" />
       <workItem from="1766313339428" duration="15301000" />
-      <workItem from="1766373301297" duration="413000" />
+      <workItem from="1766373301297" duration="5502000" />
     </task>
     <task id="LOCAL-00001" summary="xxx">
       <created>1766134788261</created>
@@ -261,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1766326535875</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="商品搜索-修复">
+      <created>1766375203575</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1766375203575</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +324,8 @@
     <MESSAGE value="首页查询商品分类" />
     <MESSAGE value="springCache+redis使用改善所有分类查询" />
     <MESSAGE value="商品搜索" />
-    <option name="LAST_COMMIT_MESSAGE" value="商品搜索" />
+    <MESSAGE value="商品搜索-修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品搜索-修复" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

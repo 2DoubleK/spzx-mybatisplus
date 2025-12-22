@@ -41,5 +41,4 @@ public class Knife4jConfig {
                 .pathsToMatch("/api/**")  // 接口请求路径规则
                 .build();
     }
-
 }
