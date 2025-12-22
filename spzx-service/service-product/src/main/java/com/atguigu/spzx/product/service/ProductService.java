@@ -13,5 +13,5 @@ public interface ProductService extends IService<Product> {
 
     Result findByPage(Long page, Long limit, ProductSkuDto productSkuDto);
 
-    Result getProductById(Long id);
+    Result queryProductItem(Long skuId);
 }

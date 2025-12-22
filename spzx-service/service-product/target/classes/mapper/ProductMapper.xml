@@ -34,7 +34,7 @@
     </select>
 
 
-    <select id="findFindPageWhere" resultMap="product">
+    <select id="findPageWhere" resultMap="product">
         select
         p.id, p.name , p.brand_id , p.category1_id , p.category2_id , p.category3_id, p.unit_name,
         p.slider_urls , p.spec_value , p.status , p.audit_status , p.audit_message , p.create_time , p.update_time ,

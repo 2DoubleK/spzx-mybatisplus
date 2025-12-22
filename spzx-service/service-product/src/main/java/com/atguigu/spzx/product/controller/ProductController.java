@@ -29,10 +29,11 @@ public class ProductController {
                           ProductSkuDto productSkuDto) {
         return productService.findByPage(page, limit,productSkuDto);
     }
-    //根据商品id查询商品信息
-    @GetMapping("/getById/{id}")
-    public Result getById(@PathVariable("id")Long id){
-        return productService.getProductById(id);
+    //商品详情
+    @Operation(summary = "商品详情")
+    @GetMapping("item/{skuId}")
+    public Result queryProductItem(@PathVariable("skuId")Long skuId){
+        return productService.queryProductItem(skuId);
     }
 
 }
