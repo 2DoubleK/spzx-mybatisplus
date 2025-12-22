@@ -16,6 +16,8 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StreamUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,14 +29,18 @@ import static com.atguigu.spzx.model.constants.Constants.EXPIRE_TIME;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, SysUser> implements UserService {
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public Result sendMessage(Long phone) {
+        String msgCode = redisTemplate.opsForValue().get(phone.toString());
+        if (StringUtils.hasText(msgCode)) {
+            return Result.build(null, ResultCodeEnum.SUCCESS);//避免狼费，有验证码就不发了
+        }
         //1.生成验证码
         String code = RandomStringUtils.randomNumeric(6);
         //2.存入redis，key是手机号，value是验证码
-        redisTemplate.opsForValue().set(phone, code, EXPIRE_TIME, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set(phone.toString(), code, EXPIRE_TIME, TimeUnit.MINUTES);
         //3.向手机好发送验证码
         sendMessageCode(phone, code);
         return Result.build(null, ResultCodeEnum.SUCCESS);
@@ -53,7 +59,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, SysUser> implements
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         Map<String, String> querys = new HashMap<String, String>();
         Map<String, String> bodys = new HashMap<String, String>();
-        bodys.put("content", "code:"+code);
+        bodys.put("content", "code:" + code);
         bodys.put("template_id", "CST_ptdie100");  //注意，CST_ptdie100该模板ID仅为调试使用，调试结果为"status": "OK" ，即表示接口调用成功，然后联系客服报备自己的专属签名模板ID，以保证短信稳定下发
         bodys.put("phone_number", phone.toString());
 

@@ -1,9 +1,9 @@
 server:
-  port: 8511  # 服务端口
+  port: 8512  # 服务端口
 
 spring:
   application:
-    name: service-product  # Nacos服务名称（服务注册与发现的标识）
+    name: service-user  # Nacos服务名称（服务注册与发现的标识）
   cloud:
     nacos:
       discovery:
