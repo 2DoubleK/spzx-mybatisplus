@@ -161,6 +161,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         UserInfoVo userInfoVo = new UserInfoVo();
         BeanUtil.copyProperties(userInfo, userInfoVo);
         //返回用户信息
-        return Result.build(userInfo, ResultCodeEnum.SUCCESS);
+        return Result.build(userInfoVo, ResultCodeEnum.SUCCESS);
     }
 }

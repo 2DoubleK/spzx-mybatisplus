@@ -1,5 +1,6 @@
 package com.atguigu.spzx.user;
 
+import com.atguigu.spzx.common.annotation.EnableUserWebMvcConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @MapperScan(basePackages = {"com.atguigu.spzx.user.mapper"})
 @EnableCaching
 @ComponentScan(basePackages = {"com.atguigu.spzx"})  //Knife4jConfig即，swagger不和当前服务在一个包下，额外配置
+@EnableUserWebMvcConfiguration
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);
