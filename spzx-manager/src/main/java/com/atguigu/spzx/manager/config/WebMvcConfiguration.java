@@ -11,12 +11,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Component
 public class WebMvcConfiguration implements WebMvcConfigurer {
+    //1.引入拦截器
     @Autowired
     private LoginAuthInterceptor loginAuthInterceptor;
     @Autowired
     private UserProperties userProperties;
 
-    //注册拦截器
+    //2.注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginAuthInterceptor)

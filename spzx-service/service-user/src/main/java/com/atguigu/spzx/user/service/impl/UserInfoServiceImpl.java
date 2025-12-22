@@ -13,6 +13,7 @@ import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
 import com.atguigu.spzx.model.vo.h5.UserInfoVo;
 import com.atguigu.spzx.user.mapper.UserInfoMapper;
 import com.atguigu.spzx.user.service.UserInfoService;
+import com.atguigu.spzx.utils.AuthContextUtil;
 import com.atguigu.spzx.utils.HttpUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
@@ -154,15 +155,12 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
 
     @Override
     public Result getCurrentUserInfo(String token) {
-        if (StrUtil.isBlank(token)) {
-            throw new GuiguException(ResultCodeEnum.LOGIN_AUTH);
-        }
-        //根据token查询redis获取用户信息
-        String userInfoJSON = redisTemplate.opsForValue().get(token);
-        UserInfo userInfo = JSON.parseObject(userInfoJSON, UserInfo.class);
+        //从threadLocal获取用户信息
+        //里面没有的不会放行
+        UserInfo userInfo = AuthContextUtil.getUserInfo();
         UserInfoVo userInfoVo = new UserInfoVo();
         BeanUtil.copyProperties(userInfo, userInfoVo);
         //返回用户信息
-        return Result.build(userInfoVo, ResultCodeEnum.SUCCESS);
+        return Result.build(userInfo, ResultCodeEnum.SUCCESS);
     }
 }

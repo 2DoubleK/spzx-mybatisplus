@@ -37,7 +37,28 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- spring boot web开发所需要的起步依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- openfeign依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
