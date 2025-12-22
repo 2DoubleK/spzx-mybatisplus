@@ -7,15 +7,10 @@
         <groupId>com.atguigu</groupId>
         <artifactId>spzx-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spzx-service</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>service-product</module>
-        <module>service-user</module>
-        <module>service-order</module>
-    </modules>
+    <artifactId>service-cart</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -34,12 +29,8 @@
             <artifactId>common-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Dubbo 依赖-->
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>3.2.6</version>
-        </dependency>
+
+
         <!-- mybatis-plus的起步依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -100,6 +91,5 @@
             <version>5.8.23</version>
         </dependency>
     </dependencies>
-
 
 </project>

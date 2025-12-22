@@ -18,6 +18,7 @@
         <module>spzx-service-client</module>
         <module>spzx-service-client/service-product-client</module>
         <module>spzx-service-client/service-user-client</module>
+        <module>spzx-service/service-cart</module>
     </modules>
 
     <parent>

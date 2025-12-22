@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/spzx-common/spzx-service/pom.xml" />
+        <option value="$PROJECT_DIR$/spzx-dubbo-api/pom.xml" />
       </set>
     </option>
   </component>
