@@ -1,2 +1,4 @@
+com\atguigu\spzx\utils\HttpUtils.class
+com\atguigu\spzx\utils\MD5Utils.class
 com\atguigu\spzx\utils\AuthContextUtil.class
 com\atguigu\spzx\utils\MinioUtils.class

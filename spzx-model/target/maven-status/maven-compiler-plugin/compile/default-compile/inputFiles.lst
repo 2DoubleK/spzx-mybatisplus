@@ -12,6 +12,7 @@ D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atgu
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\dto\product\CategoryExcelVo.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\user\UserInfo.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\system\SysRoleUser.java
+D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\constants\Constants.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\product\ProductDetails.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\order\OrderLog.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\pay\PaymentInfo.java
@@ -20,6 +21,7 @@ D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atgu
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\vo\h5\UserInfoVo.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\dto\h5\UserLoginDto.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\dto\order\OrderStatisticsDto.java
+D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\vo\PageVO.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\dto\system\SysUserDto.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\h5\CartInfo.java
 D:\java_idea_project\SpringProject\spzx-parent\spzx-model\src\main\java\com\atguigu\spzx\model\entity\product\Product.java
