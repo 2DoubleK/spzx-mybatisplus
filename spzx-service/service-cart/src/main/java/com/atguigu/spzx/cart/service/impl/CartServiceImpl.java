@@ -3,7 +3,7 @@ package com.atguigu.spzx.cart.service.impl;
 import com.alibaba.fastjson2.JSON;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
+import java.util.*;
 
 import com.atguigu.spzx.cart.service.CartService;
 import com.atguigu.spzx.model.entity.h5.CartInfo;
@@ -19,10 +19,6 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import com.atguigu.spzx.service.client.service.ProductApiSkuService;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import static com.atguigu.spzx.model.constants.Constants.USER_CART_KEY;
 
 @Service
@@ -36,7 +32,6 @@ public class CartServiceImpl implements CartService {
 
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public Result putIntoCart(Long skuId, Integer skuNum) {
         // 1.获取用户登录id
         Long userId = AuthContextUtil.getUserInfo().getId();
@@ -77,7 +72,6 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public Result cartList() {
         // 1.获取用户ID
         Long userId = AuthContextUtil.getUserInfo().getId();
@@ -100,11 +94,11 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
     public Result checkCart(Long skuId, Integer isChecked) {
         try {
             //1.获取用户信息
-            String cartKey = USER_CART_KEY + AuthContextUtil.getUserInfo().getId();
+            Long userId = AuthContextUtil.getUserInfo().getId();
+            String cartKey = USER_CART_KEY + userId;
             //2.从redis拿到对应的hashmap,反序列化然后重新set值后序列化
             Object cartObj = redisTemplate.opsForHash().get(cartKey, String.valueOf(skuId));
             CartInfo cartInfo = new CartInfo();
@@ -113,11 +107,57 @@ public class CartServiceImpl implements CartService {
             }
             cartInfo.setIsChecked(isChecked);
             String objJSON = JSON.toJSONString(cartInfo);
-            redisTemplate.opsForHash().put(cartKey,String.valueOf(skuId),objJSON); //必须使String类型哦序列化是String类型
+            redisTemplate.opsForHash().put(cartKey, String.valueOf(skuId), objJSON); //必须使String类型哦序列化是String类型
         } catch (Exception e) {
-            log.error("选中失败？：{}",e);
+            log.error("选中失败？：{}", e);
         }
         //更新redis
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    public Result deleteCart(Long skuId) {
+        //1.获取用户信息
+        Long userId = AuthContextUtil.getUserInfo().getId();
+        String cartKey = USER_CART_KEY + userId;
+        //2.刪除對應skuid的商品信息
+        redisTemplate.opsForHash().delete(cartKey, String.valueOf(skuId));
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    public Result clearCart() {
+        //1.获取用户信息
+        Long userId = AuthContextUtil.getUserInfo().getId();
+        String cartKey = USER_CART_KEY + userId;
+        //2.刪除對應skuid的商品信息
+        redisTemplate.delete(cartKey);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    public Result allCheckCart(Integer isChecked) {
+        try {
+            //1.获取用户信息
+            Long userId = AuthContextUtil.getUserInfo().getId();
+            String cartKey = USER_CART_KEY + userId;
+            //2.刪除對應skuId的商品信息
+            Map<Object, Object> objects = new HashMap<>();
+            objects = redisTemplate.opsForHash().entries(cartKey);
+            if(objects==null){
+                return Result.build(null, ResultCodeEnum.DATA_ERROR);
+            }
+            objects.forEach((skuIdObj,cartJsonObj)->{
+                CartInfo cartInfo=JSON.parseObject(cartJsonObj.toString(),CartInfo.class);
+                cartInfo.setIsChecked(1);
+                String afterUpdateCartJson = JSON.toJSONString(cartInfo);
+                String skuIdJson=String.valueOf(skuIdObj);
+                redisTemplate.opsForHash().put(cartKey,skuIdJson,afterUpdateCartJson);
+            });
+        } catch (Exception e) {
+            log.error("全選失敗？：{}",e);
+            throw new RuntimeException(e);
+        }
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 }

@@ -8,4 +8,10 @@ public interface CartService {
     Result cartList();
 
     Result checkCart(Long skuId,Integer isChecked );
+
+    Result deleteCart(Long skuId);
+
+    Result clearCart();
+
+    Result allCheckCart(Integer isChecked);
 }

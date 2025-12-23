@@ -7,10 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/order/cart")
@@ -28,18 +25,40 @@ public class CartController {
         return cartService.putIntoCart(skuId, skuNum);
     }
 
-    //  auth/cartList
+    //auth/cartList
     @Operation(summary = "查詢購物車信息")
     @GetMapping("auth/cartList")
     public Result cartList() {
         return cartService.cartList();
     }
 
-    ///auth/checkCart/
+    //auth/checkCart/
     @Operation(summary = "选中购物车商品")
     @GetMapping("auth/checkCart/{skuId}/{isChecked}")
     public Result checkCart(@PathVariable("skuId") Long skuId,
                             @PathVariable("isChecked") Integer isChecked) {
-        return cartService.checkCart(skuId,isChecked);
+        return cartService.checkCart(skuId, isChecked);
+    }
+
+    //auth/deleteCart
+    @Operation(summary = "删除购物车商品")
+    @DeleteMapping("auth/deleteCart/{skuId}")
+    public Result deleteCart(@PathVariable("skuId") Long skuId
+    ) {
+        return cartService.deleteCart(skuId);
+    }
+
+    //清空購物車 /auth/clearCart，GET
+    @Operation(summary = "清空购物车商品")
+    @GetMapping("auth/clearCart")
+    public Result clearCart() {
+        return cartService.clearCart();
+    }
+
+    //全選 /auth/allCheckCart，GET
+    @Operation(summary = "选中购物车商品")
+    @GetMapping("auth/allCheckCart/{isChecked}")
+    public Result allCheckCart(@PathVariable("isChecked") Integer isChecked) {
+        return cartService.allCheckCart(isChecked);
     }
 }
