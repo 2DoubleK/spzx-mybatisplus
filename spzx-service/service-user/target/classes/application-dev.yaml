@@ -53,3 +53,13 @@ minio:
   access-key: minioadmin                # MinIO账号
   secret-key: minioadmin                # MinIO密码
   bucket-name: spzx                     # 目标桶名
+dubbo:
+  application:
+    name: service-user
+    qos-enable: true
+    qos-port: 22223
+  registry:
+    address: nacos://localhost:8848
+  protocol:
+    name: dubbo
+    port: 20881

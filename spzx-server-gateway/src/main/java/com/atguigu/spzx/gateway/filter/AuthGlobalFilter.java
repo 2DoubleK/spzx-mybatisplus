@@ -12,6 +12,7 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
@@ -33,6 +34,12 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered { //实现全局�
         //获取请求路径
         ServerHttpRequest request = exchange.getRequest();
         String path = request.getURI().getPath();
+
+        //排除options请求
+        if(request.getMethod().matches("OPTIONS")) {
+            return chain.filter(exchange);
+        }
+
         //判单请求路径
         if (antPathMatcher.match("/api/**/auth/**", path)) {
             //登录校验

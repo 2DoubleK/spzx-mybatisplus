@@ -34,11 +34,17 @@
             <artifactId>common-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Dubbo 依赖-->
+        <!-- ⭐ 显式声明 Dubbo，并排除 REST 协议 ⭐ -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>3.2.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-rpc-rest</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- mybatis-plus的起步依赖 -->
         <dependency>

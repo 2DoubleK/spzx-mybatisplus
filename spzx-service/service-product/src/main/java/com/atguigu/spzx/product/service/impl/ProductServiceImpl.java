@@ -98,4 +98,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         productItemVo.setSpecValueList(JSON.parseArray(product.getSpecValue()));
         return Result.build(productItemVo, ResultCodeEnum.SUCCESS);
     }
+
+    @Override
+    public ProductSku getSkuBySkuId(Long skuId) {
+        ProductSku productSku = productSkuMapper.selectOne(new QueryWrapper<ProductSku>().eq("id", skuId));
+        return productSku;
+    }
 }

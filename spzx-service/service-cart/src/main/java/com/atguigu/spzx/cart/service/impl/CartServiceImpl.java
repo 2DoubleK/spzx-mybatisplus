@@ -1,55 +1,123 @@
 package com.atguigu.spzx.cart.service.impl;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Collections;
+
 import com.atguigu.spzx.cart.service.CartService;
 import com.atguigu.spzx.model.entity.h5.CartInfo;
 import com.atguigu.spzx.model.entity.product.ProductSku;
 import com.atguigu.spzx.model.vo.common.Result;
+import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
 import com.atguigu.spzx.utils.AuthContextUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.apache.dubbo.config.annotation.DubboReference;
+import com.atguigu.spzx.service.client.service.ProductApiSkuService;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.atguigu.spzx.model.constants.Constants.USER_CART_KEY;
 
 @Service
+@Slf4j
 public class CartServiceImpl implements CartService {
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
-    //添加商品到购物车
+    @DubboReference(check = false, protocol = "dubbo")
+    private ProductApiSkuService productApiSkuService;
+
+
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public Result putIntoCart(Long skuId, Integer skuNum) {
-        //1.获取用户登录id
+        // 1.获取用户登录id
         Long userId = AuthContextUtil.getUserInfo().getId();
-        String key = USER_CART_KEY + userId;
-        //2.使用hash结构其实就是一个key对应一个map集合
-        Object cartObj = redisTemplate.opsForHash().get(key, String.valueOf(skuId));//相当于先获取map，再根据map的key取值或拿值
-        //3.如果购物车已经存在商品，那就把商品数量相加
+        String cartKey = USER_CART_KEY + userId;
+        // 2.从Redis中获取当前商品的购物车信息
+        Object cartObj = redisTemplate.opsForHash().get(cartKey, String.valueOf(skuId));
         CartInfo cartInfo = null;
+
         if (cartObj != null) {
-            cartInfo = JSON.parseObject(cartObj.toString(), CartInfo.class);
-            cartInfo.setSkuNum(cartInfo.getSkuNum() + skuNum);//设置数量相加
-            cartInfo.setIsChecked(1); //选中状态
+            // 3.商品已存在，更新数量
+            cartInfo = com.alibaba.fastjson.JSON.parseObject(cartObj.toString(), CartInfo.class);
+            cartInfo.setSkuNum(cartInfo.getSkuNum() + skuNum);
+            cartInfo.setIsChecked(1);
             cartInfo.setUpdateTime(new Date());
         } else {
-            //4.如果购物车没有商品就把商品直接加到购物车
+            // 4.商品不存在，新建购物车对象
             cartInfo = new CartInfo();
-            //5.通过nacos+openfeign，根据skuId获取商品sku信息
-            ProductSku productSku = null;
-            cartInfo.setCartPrice(productSku.getSalePrice());
-            cartInfo.setSkuNum(skuNum);
-            cartInfo.setSkuId(skuId);
-            cartInfo.setImgUrl(productSku.getThumbImg());
-            cartInfo.setSkuName(productSku.getSkuName());
-            cartInfo.setIsChecked(1);
-            cartInfo.setCreateTime(new Date());
-            cartInfo.setUpdateTime(new Date());
-            redisTemplate.opsForHash().put(key, String.valueOf(skuId), JSON.toJSONString(cartInfo));
+            try {
+                ProductSku productSku = productApiSkuService.getSkuBySkuId(skuId);
+                cartInfo.setUserId(userId); // 补充用户ID
+                cartInfo.setCartPrice(productSku.getSalePrice());
+                cartInfo.setSkuNum(skuNum);
+                cartInfo.setSkuId(skuId);
+                cartInfo.setImgUrl(productSku.getThumbImg());
+                cartInfo.setSkuName(productSku.getSkuName());
+                cartInfo.setIsChecked(1);
+                cartInfo.setCreateTime(new Date());
+                cartInfo.setUpdateTime(new Date());
+            } catch (Exception e) {
+                log.error("远程调用失败：", e);
+                throw new RuntimeException(e);
+            }
+        }
+        // 5.将更新后的购物车信息存入Redis
+        redisTemplate.opsForHash().put(cartKey, String.valueOf(skuId), JSON.toJSONString(cartInfo));
+
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Result cartList() {
+        // 1.获取用户ID
+        Long userId = AuthContextUtil.getUserInfo().getId();
+        String cartKey = USER_CART_KEY + userId;
+
+        // 2.从Redis中获取购物车所有数据
+        List<Object> cartObjList = redisTemplate.opsForHash().values(cartKey);
+        List<CartInfo> cartInfoList = new ArrayList<>();
+
+        // 3.判断是否有数据，有则反序列化
+        if (cartObjList != null && !cartObjList.isEmpty()) {
+            for (Object obj : cartObjList) {
+                // 使用fastjson反序列化（与存储时一致）
+                CartInfo cartInfo = JSON.parseObject(obj.toString(), CartInfo.class);
+                cartInfoList.add(cartInfo);
+            }
         }
 
-        return null;
+        return Result.build(cartInfoList, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Result checkCart(Long skuId, Integer isChecked) {
+        try {
+            //1.获取用户信息
+            String cartKey = USER_CART_KEY + AuthContextUtil.getUserInfo().getId();
+            //2.从redis拿到对应的hashmap,反序列化然后重新set值后序列化
+            Object cartObj = redisTemplate.opsForHash().get(cartKey, String.valueOf(skuId));
+            CartInfo cartInfo = new CartInfo();
+            if (cartObj != null) {
+                cartInfo = JSON.parseObject(cartObj.toString(), CartInfo.class);
+            }
+            cartInfo.setIsChecked(isChecked);
+            String objJSON = JSON.toJSONString(cartInfo);
+            redisTemplate.opsForHash().put(cartKey,String.valueOf(skuId),objJSON); //必须使String类型哦序列化是String类型
+        } catch (Exception e) {
+            log.error("选中失败？：{}",e);
+        }
+        //更新redis
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 }

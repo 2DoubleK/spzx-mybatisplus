@@ -14,4 +14,7 @@ public interface ProductService extends IService<Product> {
     Result findByPage(Long page, Long limit, ProductSkuDto productSkuDto);
 
     Result queryProductItem(Long skuId);
+    //远程调用接口，根据skuId返回sku信息
+    ProductSku getSkuBySkuId(Long skuId);
+
 }

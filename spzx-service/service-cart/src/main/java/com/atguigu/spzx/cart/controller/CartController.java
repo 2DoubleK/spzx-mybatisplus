@@ -21,10 +21,25 @@ public class CartController {
 
     // auth/addToCart/{skuId}/{skuNum}
     @Operation(summary = "添加购物车")
-    @GetMapping("auth/addToCart/{skuId}/{skuNum}")
-    public Result addToCart(@Parameter(name = "skuId", description = "商品skuId", required = true) @PathVariable("skuId") Long skuId,
-                            @Parameter(name = "skuNum", description = "数量", required = true) @PathVariable("skuNum") Integer skuNum) {
+    @GetMapping("/auth/addToCart/{skuId}/{skuNum}")
+    public Result addToCart(@PathVariable("skuId") Long skuId,
+                            @PathVariable("skuNum") Integer skuNum) {
 
         return cartService.putIntoCart(skuId, skuNum);
+    }
+
+    //  auth/cartList
+    @Operation(summary = "查詢購物車信息")
+    @GetMapping("auth/cartList")
+    public Result cartList() {
+        return cartService.cartList();
+    }
+
+    ///auth/checkCart/
+    @Operation(summary = "选中购物车商品")
+    @GetMapping("auth/checkCart/{skuId}/{isChecked}")
+    public Result checkCart(@PathVariable("skuId") Long skuId,
+                            @PathVariable("isChecked") Integer isChecked) {
+        return cartService.checkCart(skuId,isChecked);
     }
 }
