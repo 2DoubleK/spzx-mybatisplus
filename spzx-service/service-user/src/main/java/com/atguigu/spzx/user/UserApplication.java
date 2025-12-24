@@ -1,6 +1,7 @@
 package com.atguigu.spzx.user;
 
-import com.atguigu.spzx.common.annotation.EnableUserWebMvcConfiguration;
+import com.atguigu.spzx.annotation.EnableUserWebMvcConfiguration;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableCaching
 @ComponentScan(basePackages = {"com.atguigu.spzx"})  //Knife4jConfig即，swagger不和当前服务在一个包下，额外配置
 @EnableUserWebMvcConfiguration
+@EnableDubbo
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);

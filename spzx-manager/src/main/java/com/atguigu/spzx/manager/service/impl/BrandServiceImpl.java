@@ -5,10 +5,8 @@ import com.atguigu.spzx.manager.service.BrandService;
 import com.atguigu.spzx.model.entity.product.Brand;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
-import com.atguigu.spzx.utils.MinioUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

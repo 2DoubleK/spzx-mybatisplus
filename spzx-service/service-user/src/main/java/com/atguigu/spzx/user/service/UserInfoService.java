@@ -6,6 +6,7 @@ import com.atguigu.spzx.model.entity.user.UserInfo;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+
 public interface UserInfoService extends IService<UserInfo> {
     Result sendMessage(Long phone);
 

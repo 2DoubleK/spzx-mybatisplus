@@ -1,6 +1,6 @@
 package com.atguigu.spzx.cart;
 
-import com.atguigu.spzx.common.annotation.EnableUserWebMvcConfiguration;
+import com.atguigu.spzx.annotation.EnableUserWebMvcConfiguration;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

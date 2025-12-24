@@ -1,7 +1,6 @@
 package com.atguigu.spzx.cart.service.impl;
 
 import com.alibaba.fastjson2.JSON;
-import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
@@ -17,7 +16,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.apache.dubbo.config.annotation.DubboReference;
 import com.atguigu.spzx.service.client.service.ProductApiSkuService;
-import org.springframework.transaction.annotation.Transactional;
 
 import static com.atguigu.spzx.model.constants.Constants.USER_CART_KEY;
 

@@ -1,10 +1,12 @@
 package com.atguigu.spzx.model.entity.base;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 @Schema(description = "区域实体类")
+@TableName("region")
 public class Region extends BaseEntity {
 
 	@Schema(description = "区域编码")

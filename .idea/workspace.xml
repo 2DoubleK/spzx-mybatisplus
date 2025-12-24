@@ -4,14 +4,86 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="购物车序列化方式错误修复(不可以hutool和fastjson混用)，购物车选中商品添加">
+    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="全選、清空購物車">
+      <change afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/vo/h5/OrderSubmitVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client/service/UserAddressApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/config/MinioConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/mapper/OrderItemMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/mapper/OrderLogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/mapper/OrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/resources/mapper/OrderItemMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/RegionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/UserAddressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/mapper/RegionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/mapper/UserAddressMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/RegionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/UserAddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/RegionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/UserAddressApiServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/UserAddressServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/resources/mapper/UserAddressMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/service/impl/AsyncOperLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-log/src/main/java/com/atguigu/spzx/common/log/service/impl/AsyncOperLogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-log/target/classes/com/atguigu/spzx/common/log/service/impl/AsyncOperLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-log/target/classes/com/atguigu/spzx/common/log/service/impl/AsyncOperLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/annotation/EnableUserWebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/annotation/EnableUserWebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/config/Knife4jConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/config/Knife4jConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/config/UserWebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/config/UserWebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/exception/GuiguException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/exception/GuiguException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/common/interceptor/UserLoginAuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/atguigu/spzx/interceptor/UserLoginAuthInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/annotation/EnableUserWebMvcConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/config/Knife4jConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/config/UserWebMvcConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/exception/GuiguException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/target/classes/com/atguigu/spzx/common/interceptor/UserLoginAuthInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/interceptor/LoginAuthInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/interceptor/LoginAuthInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/BrandServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/SysMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/interceptor/LoginAuthInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/interceptor/LoginAuthInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/BrandServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/BrandServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/target/classes/com/atguigu/spzx/manager/service/impl/SysUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/base/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/base/Region.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/order/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/order/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/user/UserAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/entity/user/UserAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/Region.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserAddress.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-server-gateway/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-server-gateway/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-server-gateway/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-server-gateway/target/classes/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-user-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/atguigu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-user-client/target/classes/com/atguigu/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/CartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/CartApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/service/impl/CartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/controller/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/CartApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/CartApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/impl/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/impl/CartServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/OrderApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/target/classes/com/atguigu/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/controller/UserInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/UserInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/UserInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/atguigu/spzx/user/service/impl/UserInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/resources/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/resources/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/application-dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/application-dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/UserApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/config/MinioConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/config/MinioConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/UserInfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/UserInfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/mapper/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/mapper/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/service/UserInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/service/UserInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/service/impl/UserInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/service/impl/UserInfoServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +95,9 @@
       <list>
         <option value="Enum" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -68,7 +140,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "D:/java_idea_project/SpringProject/spzx-parent/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart",
+    "last_opened_file_path": "D:/java_idea_project/SpringProject/spzx-parent/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,22 +162,23 @@
       <recent name="com.atguigu.spzx.manager.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service-client\service-user-client\src\main\java\com\atguigu\spzx\service\user\client" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-cart\src\main\java\com\atguigu\spzx\cart" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-dubbo-api" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-user\src\main\resources" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service-client" />
-      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-order\src\main\resources" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-server-gateway\src\main\resources" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-manager\src\main\resources\mapper\user" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atguigu.spzx.order.config" />
       <recent name="com.atguigu.spzx.cart" />
       <recent name="com.atguigu.spzx.common.utils" />
       <recent name="com.atguigu.spzx.product.config" />
       <recent name="com.atguigu.spzx.user.config" />
-      <recent name="com.atguigu.spzx.product.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -115,7 +188,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.spzx-cart">
+  <component name="RunManager" selected="Spring Boot.spzx-order">
     <configuration name="spzx-cart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="service-cart" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.cart.CartApplication" />
@@ -126,6 +199,13 @@
     <configuration name="spzx-manager" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spzx-manager" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.manager.ManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spzx-order" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-order" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.order.OrderApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,7 +231,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="" />
+      <option name="jdkPath" value="Default" />
+      <option name="language" value="" />
+      <option name="specificationPath" value="" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Spring Boot.spzx-order" />
       <item itemvalue="Spring Boot.spzx-manager" />
       <item itemvalue="Spring Boot.spzx-cart" />
       <item itemvalue="Spring Boot.spzx-prodcut" />
@@ -194,7 +291,9 @@
       <workItem from="1766313339428" duration="15301000" />
       <workItem from="1766373301297" duration="18167000" />
       <workItem from="1766406923138" duration="14834000" />
-      <workItem from="1766463922403" duration="11082000" />
+      <workItem from="1766463922403" duration="12173000" />
+      <workItem from="1766492968744" duration="8834000" />
+      <workItem from="1766553487454" duration="14175000" />
     </task>
     <task id="LOCAL-00001" summary="xxx">
       <created>1766134788261</created>
@@ -357,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1766472118482</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="全選、清空購物車">
+      <created>1766476390248</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1766476390248</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +512,8 @@
     <MESSAGE value="乱改修复" />
     <MESSAGE value="dubbo雅安從調用失敗修復" />
     <MESSAGE value="购物车序列化方式错误修复(不可以hutool和fastjson混用)，购物车选中商品添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车序列化方式错误修复(不可以hutool和fastjson混用)，购物车选中商品添加" />
+    <MESSAGE value="全選、清空購物車" />
+    <option name="LAST_COMMIT_MESSAGE" value="全選、清空購物車" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,7 +525,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/atguigu/spzx/cart/service/impl/CartServiceImpl.java</url>
-          <line>120</line>
+          <line>118</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>

@@ -2,7 +2,7 @@ package com.atguigu.spzx.manager.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
-import com.atguigu.spzx.common.exception.GuiguException;
+import com.atguigu.spzx.exception.GuiguException;
 import com.atguigu.spzx.manager.mapper.SysRoleMapper;
 import com.atguigu.spzx.manager.mapper.SysUserMapper;
 import com.atguigu.spzx.manager.mapper.SysUserRoleMapper;
@@ -10,7 +10,6 @@ import com.atguigu.spzx.manager.service.SysUserService;
 import com.atguigu.spzx.model.dto.system.AssginRoleDto;
 import com.atguigu.spzx.model.dto.system.LoginDto;
 import com.atguigu.spzx.model.dto.system.SysUserDto;
-import com.atguigu.spzx.model.entity.system.SysRole;
 import com.atguigu.spzx.model.entity.system.SysUser;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
@@ -24,7 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.DigestUtils;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;

@@ -4,9 +4,7 @@ import com.atguigu.spzx.manager.Utils.MenuHelper;
 import com.atguigu.spzx.manager.mapper.SysMenuMapper;
 import com.atguigu.spzx.manager.mapper.SysUserRoleMapper;
 import com.atguigu.spzx.manager.service.SysMenuService;
-import com.atguigu.spzx.manager.service.SysRoleMenuService;
 import com.atguigu.spzx.model.entity.system.SysMenu;
-import com.atguigu.spzx.model.entity.system.SysRoleMenu;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
 import com.atguigu.spzx.utils.AuthContextUtil;
@@ -16,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

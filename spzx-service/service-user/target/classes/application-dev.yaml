@@ -57,9 +57,11 @@ dubbo:
   application:
     name: service-user
     qos-enable: true
-    qos-port: 22223
+    qos-port: 55555
+    register-mode: all # Explicitly register both interface and instance level
+    migration: FORCE_INTERFACE # 强制使用dubbo規範
+  protocol:
+    name: dubbo     # ✅ 明确使用 Dubbo RPC
+    port: -1        # ✅ 随机端口
   registry:
     address: nacos://localhost:8848
-  protocol:
-    name: dubbo
-    port: 20881
