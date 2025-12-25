@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.spzx.order.mapper.OrderMapper">
+
+
+    <select id="findOrderByPgae" resultType="com.atguigu.spzx.model.entity.order.OrderInfo">
+        select oi.* from order_info oi
+        <where>
+            and user_id=#{user_id}
+            <if test="orderStatus!=null and   orderStatus!='' ">
+                where order_status = #{orderStatus}
+            </if>
+        </where>
+        limit #{offset},#{limit}
+    </select>
+    <select id="countOrder" resultType="int">
+        select count(*) from order_info
+        <where>
+            and user_id=#{user_id}
+            <if test="orderStatus!=null and   orderStatus!='' ">
+                where order_status = #{orderStatus}
+            </if>
+        </where>
+    </select>
+
+
+
+    <select id="findOrderByPage" resultType="com.atguigu.spzx.model.entity.order.OrderInfo">
+        select * from order_info
+        <where>
+            user_id = #{user_id}
+            <if test="orderStatus != null">
+                AND order_status = #{orderStatus}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+
+</mapper>

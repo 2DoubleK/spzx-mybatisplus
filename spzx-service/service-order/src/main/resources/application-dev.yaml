@@ -39,3 +39,7 @@ dubbo:
     timeout: 3000
     # ❌ 不要写 protocol,除非使用Restful风格接口
     # ❌ 不要写 rest
+logging:
+  level:
+    org.apache.dubbo: DEBUG # 开启Dubbo调试日志
+    org.apache.dubbo.remoting: DEBUG # 开启通信层日志

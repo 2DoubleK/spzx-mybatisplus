@@ -27,4 +27,7 @@ public class PageVO<T> {
         this.current = current;
         this.size = size;
     }
+
+    public PageVO() {
+    }
 }

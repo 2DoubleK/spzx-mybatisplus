@@ -7,6 +7,7 @@ import com.atguigu.spzx.model.vo.common.Result;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ProductService extends IService<Product> {
     List<ProductSku> findProductSkuBySale();
@@ -17,4 +18,7 @@ public interface ProductService extends IService<Product> {
     //远程调用接口，根据skuId返回sku信息
     ProductSku getSkuBySkuId(Long skuId);
 
+    Map<Long,Integer> getStock(List<Long> skuIdList);
+
+    Boolean updateStock(Map<Long, Integer> updateStock);
 }

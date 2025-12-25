@@ -5,16 +5,23 @@ import cn.hutool.json.JSONUtil;
 import com.atguigu.spzx.exception.GuiguException;
 import com.atguigu.spzx.model.dto.h5.UserLoginDto;
 import com.atguigu.spzx.model.dto.h5.UserRegisterDto;
+import com.atguigu.spzx.model.entity.user.UserBrowseHistory;
+import com.atguigu.spzx.model.entity.user.UserCollect;
 import com.atguigu.spzx.model.entity.user.UserInfo;
 import com.atguigu.spzx.model.vo.common.Result;
 import com.atguigu.spzx.model.vo.common.ResultCodeEnum;
 import com.atguigu.spzx.model.vo.h5.UserInfoVo;
+import com.atguigu.spzx.user.mapper.UserBrowseHistoryMapper;
+import com.atguigu.spzx.user.mapper.UserCollectMapper;
 import com.atguigu.spzx.user.mapper.UserInfoMapper;
 import com.atguigu.spzx.user.service.UserInfoService;
 import com.atguigu.spzx.utils.AuthContextUtil;
 import com.atguigu.spzx.utils.HttpUtils;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,6 +32,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -38,6 +46,10 @@ import static com.atguigu.spzx.utils.MD5Utils.MD5Encrypted;
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+    @Autowired
+    private UserBrowseHistoryMapper userBrowseHistoryMapper;
+    @Autowired
+    private UserCollectMapper userCollectMapper;
 
     @Override
     public Result sendMessage(Long phone) {
@@ -160,5 +172,103 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         BeanUtil.copyProperties(userInfo, userInfoVo);
         //返回用户信息
         return Result.build(userInfoVo, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    public Result collect(Long skuId) {
+        try {
+            UserCollect collect = new UserCollect();
+            collect.setSkuId(skuId);
+            collect.setUserId(AuthContextUtil.getUserInfo().getId());
+            collect.setUpdateTime(LocalDateTime.now());
+            collect.setCreateTime(LocalDateTime.now());
+            userCollectMapper.insert(collect);
+        } catch (Exception e) {
+            log.error("", e);
+            throw new RuntimeException(e);
+        }
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    @Override
+    public Result findUserBrowseHistoryPage(Long page, Long limit) {
+        Page<UserBrowseHistory> mpPage = userBrowseHistoryMapper.selectPage(
+                new Page<>(page, limit),
+                new QueryWrapper<UserBrowseHistory>()
+                        .eq("is_deleted", 0)
+                        .orderByDesc("update_time")
+        );
+        PageInfo<UserBrowseHistory> pageInfo =
+                new PageInfo<>(mpPage.getRecords());
+        pageInfo.setPageNum((int) mpPage.getCurrent());
+        pageInfo.setPageSize((int) mpPage.getSize());
+        pageInfo.setTotal(mpPage.getTotal());
+        pageInfo.setPages((int) mpPage.getPages());
+        return Result.build(pageInfo, ResultCodeEnum.SUCCESS);
+    }
+
+
+    @Override
+    public Result findUserCollectPage(Long page, Long limit) {
+        Page<UserCollect> mpPage = userCollectMapper.selectPage(
+                new Page<>(page, limit),
+                new QueryWrapper<UserCollect>()
+                        .eq("is_deleted", 0)
+                        .orderByDesc("create_time")
+        );
+        PageInfo<UserCollect> pageInfo =
+                new PageInfo<>(mpPage.getRecords());
+        pageInfo.setPageNum((int) mpPage.getCurrent());
+        pageInfo.setPageSize((int) mpPage.getSize());
+        pageInfo.setTotal(mpPage.getTotal());
+        pageInfo.setPages((int) mpPage.getPages());
+        return Result.build(pageInfo, ResultCodeEnum.SUCCESS);
+    }
+
+
+    @Override
+    public void addBrowseHistory(Long skuId, Long user_id) {
+        if (user_id == null || skuId == null) {
+            return;
+        }
+        try {
+            //查询用户是否有此skuId的记录如果有就，更新时间
+            UserBrowseHistory history;
+            history = userBrowseHistoryMapper.selectOne(
+                    new QueryWrapper<UserBrowseHistory>()
+                            .eq("user_id", user_id)
+                            .eq("sku_id", skuId)
+                            .eq("is_deleted", 0)
+
+            );
+            if (history != null) {
+                history.setUpdateTime(LocalDateTime.now());
+                userBrowseHistoryMapper.updateById(history);
+                return;
+            }
+            //不存在
+            history = new UserBrowseHistory();
+            history.setUserId(user_id);
+            history.setSkuId(skuId);
+            history.setIsDeleted(0);
+            history.setCreateTime(LocalDateTime.now());
+            history.setUpdateTime(LocalDateTime.now());
+            userBrowseHistoryMapper.insert(history);
+        } catch (Exception e) {
+            log.error("{}", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Result isCollect(Long skuId) {
+        boolean exists = userCollectMapper.exists(
+                new QueryWrapper<UserCollect>()
+                        .eq("sku_id", skuId)
+                        .eq("user_id", AuthContextUtil.getUserInfo().getId()));
+        if(!exists){
+            return Result.build(exists, ResultCodeEnum.DATA_ERROR);
+        }
+        return Result.build(exists, ResultCodeEnum.SUCCESS);
     }
 }

@@ -43,8 +43,13 @@ dubbo:
     qos-enable: true
     qos-port: 33333
     register-mode: all # Explicitly register both interface and instance level
+    migration: FORCE_INTERFACE # Force interface-level discovery to avoid RestProtocol issues
   protocol:
     name: dubbo     # ✅ 明确使用 Dubbo RPC
     port: -1        # ✅ 随机端口
   registry:
     address: nacos://localhost:8848
+logging:
+  level:
+    org.apache.dubbo: DEBUG # 开启Dubbo调试日志
+    org.apache.dubbo.remoting: DEBUG # 开启通信层日志

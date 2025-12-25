@@ -15,4 +15,14 @@ public interface UserInfoService extends IService<UserInfo> {
     Result login(UserLoginDto userLoginDto);
 
     Result getCurrentUserInfo(String token);
+
+    Result collect(Long skuId);
+
+    Result findUserBrowseHistoryPage(Long page, Long limit);
+
+    Result findUserCollectPage(Long page, Long limit);
+
+    void addBrowseHistory(Long skuId,Long user_id);
+
+    Result isCollect(Long skuId);
 }

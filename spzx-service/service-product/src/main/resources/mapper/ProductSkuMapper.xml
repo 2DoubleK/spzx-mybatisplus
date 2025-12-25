@@ -75,4 +75,22 @@
         </where>
     </select>
 
+    <select id="selectStockBySkuId"
+            resultType="com.atguigu.spzx.model.vo.order.ProductSkuStockVo">
+        select
+        ps.id as skuId,
+        ps.stock_num as stock
+        from product_sku ps
+        where ps.is_deleted = 0
+        and ps.id in
+        <foreach collection="skuIdList"
+                 item="id"
+                 open="("
+                 separator=","
+                 close=")">
+            #{id}
+        </foreach>
+    </select>
+
+
 </mapper>

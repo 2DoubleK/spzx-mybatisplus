@@ -13,4 +13,8 @@ public interface OrderService extends IService<OrderInfo> {
     Result submitOrder(Long feightFee, List<OrderItem> orderItemList, String remark, Long userAddressId);
 
     Result queryOrderByRebackOrderId(Long orderId);
+
+    Result queryAllOrder(Integer page, Integer limit, Integer orderStatus);
+
+    Result buy(Long skuId);
 }

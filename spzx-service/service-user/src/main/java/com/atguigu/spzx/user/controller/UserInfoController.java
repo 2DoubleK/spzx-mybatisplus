@@ -35,4 +35,33 @@ public class UserInfoController {
     public Result getCurrentUserInfo(HttpServletRequest request) {
         return userInfoService.getCurrentUserInfo(request.getHeader("Token"));
     }
+
+    // 用户收藏商品
+    @Operation(summary = "收藏商品")
+    @GetMapping("/auth/collect/{skuId}")
+    public Result collect(@PathVariable("skuId")Long skuId) {
+        return userInfoService.collect(skuId);
+    }
+
+    //   获取用户浏览信息
+    @Operation(summary = "浏览列表")
+    @GetMapping("/auth/findUserBrowseHistoryPage/{page}/{limit}")
+    public Result findUserBrowseHistoryPage(@PathVariable("page")Long page,
+                                            @PathVariable("limit")Long limit) {
+        return userInfoService.findUserBrowseHistoryPage(page,limit);
+    }
+    //  获取用户收藏信息，findUserCollectPage
+    @Operation(summary = "收藏商品列表")
+    @GetMapping("/auth/findUserCollectPage/{page}/{limit}")
+    public Result findUserCollectPage(@PathVariable("page")Long page,
+                                            @PathVariable("limit")Long limit) {
+        return userInfoService.findUserCollectPage(page,limit);
+    }
+    // isCollect/4
+
+    @Operation(summary = "收藏商品")
+    @GetMapping("isCollect/{skuId}")
+    public Result isCollect(@PathVariable("skuId")Long skuId) {
+        return userInfoService.isCollect(skuId);
+    }
 }
