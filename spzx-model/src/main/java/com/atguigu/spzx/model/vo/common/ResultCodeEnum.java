@@ -20,7 +20,8 @@ public enum ResultCodeEnum {
     USER_PHONE_IS_EXISTS(222 , "该电话已经被注册"),
     PASSWORD_WRONG(233 , "密码错误！"),
     STOCK_NOT_ENOUGH(225,"库存不足"),
-    SYSTEM_BUSY(333,"系统繁忙")
+    SYSTEM_BUSY(333,"系统繁忙"),
+    NO_SUCH_ORDER(334,"订单不存在")
     ;
 
     private Integer code ;      // 业务状态码

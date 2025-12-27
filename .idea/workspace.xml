@@ -4,20 +4,82 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="订单接口添加库存扣除(单机redissson分布式锁版本)、用户收藏商品相关服务、用户浏览相关接口">
+    <list default="true" id="404f1651-e32f-45c1-a9f0-a8982aa2d309" name="Changes" comment="这次修改是trae修改有时候回请求失败的错误，虽然也不知道他妈的到底改了啥(动这么多文件)，但也没有效果哈哈哈">
+      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client/service/OrderInfoApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client/service/PaymentInfoApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/atguigu/spzx/order/service/impl/OrderInfoApiServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/PayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/config/AlipayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/config/MinioConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/controller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/mapper/PaymentInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/service/PaymentInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/service/impl/PaymentInfoApiServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/service/impl/PaymentInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay/utils/AlipayProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/resources/application-alipay.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-pay/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/HttpUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/OrderInfoDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/OrderInfoDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/Region.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/Region.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserAddress.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserAddress.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/PageVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/PageVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/common/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/common/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/AuthContextUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/AuthContextUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/MD5Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/MD5Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/MinioUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/common-util/target/classes/com/atguigu/spzx/utils/MinioUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/properties/UserProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/atguigu/spzx/manager/properties/UserProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/vo/common/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/atguigu/spzx/model/vo/common/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/constants/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/constants/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/ProductSkuDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/ProductSkuDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/UserLoginDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/UserLoginDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/UserRegisterDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/h5/UserRegisterDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/order/OrderStatisticsDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/order/OrderStatisticsDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/CategoryBrandDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/CategoryBrandDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/CategoryExcelVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/CategoryExcelVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/ProductDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/SkuSaleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/product/SkuSaleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/AssginMenuDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/AssginMenuDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/AssginRoleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/AssginRoleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/LoginDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/LoginDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysOperLogDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysOperLogDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysRoleDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysRoleDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysUserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/dto/system/SysUserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/BaseEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/BaseEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/ProductUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/base/ProductUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/h5/CartInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/h5/CartInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/order/OrderStatistics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/pay/PaymentInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/pay/PaymentInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Brand.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Brand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/CategoryBrand.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/CategoryBrand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductSku.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductSku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductSpec.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/product/ProductSpec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysOperLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysOperLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRoleMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRoleMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRoleUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysRoleUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/system/SysUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/entity/user/UserInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/common/ResultCodeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/common/ResultCodeEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/TradeVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/TradeVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-server-gateway/target/classes/com/atguigu/spzx/gateway/filter/AuthGlobalFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-server-gateway/target/classes/com/atguigu/spzx/gateway/filter/AuthGlobalFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-product-client/target/classes/com/atguigu/spzx/service/client/service/ProductApiSkuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-product-client/target/classes/com/atguigu/spzx/service/client/service/ProductApiSkuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/IndexVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/IndexVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/ProductItemVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/ProductItemVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/UserInfoVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/h5/UserInfoVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/order/OrderStatisticsVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/order/OrderStatisticsVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/product/CategoryExcelVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/product/CategoryExcelVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/LoginVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/LoginVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/SysMenuVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/SysMenuVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/ValidateCodeVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/target/classes/com/atguigu/spzx/model/vo/system/ValidateCodeVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-product-client/target/classes/com/atguigu/spzx/service/client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-product-client/target/classes/com/atguigu/spzx/service/client/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/CartApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/CartApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/config/MinioConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/config/MinioConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/controller/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/controller/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/impl/CartServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/target/classes/com/atguigu/spzx/cart/service/impl/CartServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/config/MinioConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/config/MinioConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/config/RedisConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/controller/BrandController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/controller/BrandController.class" afterDir="false" />
@@ -37,6 +99,7 @@
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductApiSkuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductApiSkuServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/service/impl/ProductServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/target/classes/com/atguigu/spzx/product/utils/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/UserApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/config/MinioConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/config/MinioConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/target/classes/com/atguigu/spzx/user/controller/MessageController.class" afterDir="false" />
@@ -89,31 +152,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/java_idea_project/SpringProject/spzx-parent/spzx-service-client/service-user-client/src/main/java/com/atguigu/spzx/service/user/client&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.19635099&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;8b3f949126c866e996350f2940afd51a&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17 (2)",
+    "last_opened_file_path": "D:/java_idea_project/SpringProject/spzx-parent/spzx-service/service-pay/src/main/java/com/atguigu/spzx/pay",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.19635099",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "spring.configuration.checksum": "8b3f949126c866e996350f2940afd51a",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -122,11 +185,11 @@
       <recent name="com.atguigu.spzx.manager.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-pay\src\main\java\com\atguigu\spzx\pay" />
+      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-pay\src\main\resources" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service-client\service-user-client\src\main\java\com\atguigu\spzx\service\user\client" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-cart\src\main\java\com\atguigu\spzx\cart" />
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-dubbo-api" />
-      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-user\src\main\resources" />
-      <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service-client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-service\service-order\src\main\resources" />
@@ -134,11 +197,11 @@
       <recent name="D:\java_idea_project\SpringProject\spzx-parent\spzx-manager\src\main\resources\mapper\user" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atguigu.spzx.pay.config" />
       <recent name="com.atguigu.spzx.user.controller" />
       <recent name="com.atguigu.spzx.order.config" />
       <recent name="com.atguigu.spzx.cart" />
       <recent name="com.atguigu.spzx.common.utils" />
-      <recent name="com.atguigu.spzx.product.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -148,7 +211,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.spzx-user">
+  <component name="RunManager" selected="Spring Boot.spzx-server-gateway">
     <configuration name="spzx-cart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="service-cart" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.cart.CartApplication" />
@@ -166,6 +229,13 @@
     <configuration name="spzx-order" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="service-order" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.order.OrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spzx-pay" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-pay" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.spzx.pay.PayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,6 +283,7 @@
       <item itemvalue="Spring Boot.spzx-cart" />
       <item itemvalue="Spring Boot.spzx-prodcut" />
       <item itemvalue="Spring Boot.spzx-user" />
+      <item itemvalue="Spring Boot.spzx-pay" />
       <item itemvalue="Spring Boot.spzx-server-gateway" />
     </list>
   </component>
@@ -258,7 +329,7 @@
       <workItem from="1766637641626" duration="23016000" />
       <workItem from="1766671286322" duration="1065000" />
       <workItem from="1766715668443" duration="2467000" />
-      <workItem from="1766811105360" duration="321000" />
+      <workItem from="1766811105360" duration="8226000" />
     </task>
     <task id="LOCAL-00001" summary="xxx">
       <created>1766134788261</created>
@@ -442,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1766672014899</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="这次修改是trae修改有时候回请求失败的错误，虽然也不知道他妈的到底改了啥(动这么多文件)，但也没有效果哈哈哈">
+      <created>1766811629565</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1766811629565</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +572,8 @@
     <MESSAGE value="全選、清空購物車" />
     <MESSAGE value="訂單接口，遠程調用dubbo版本,还差更新(扣减)库存信息" />
     <MESSAGE value="订单接口添加库存扣除(单机redissson分布式锁版本)、用户收藏商品相关服务、用户浏览相关接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单接口添加库存扣除(单机redissson分布式锁版本)、用户收藏商品相关服务、用户浏览相关接口" />
+    <MESSAGE value="这次修改是trae修改有时候回请求失败的错误，虽然也不知道他妈的到底改了啥(动这么多文件)，但也没有效果哈哈哈" />
+    <option name="LAST_COMMIT_MESSAGE" value="这次修改是trae修改有时候回请求失败的错误，虽然也不知道他妈的到底改了啥(动这么多文件)，但也没有效果哈哈哈" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

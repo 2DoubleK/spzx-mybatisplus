@@ -15,30 +15,39 @@
         <module>service-product</module>
         <module>service-user</module>
         <module>service-order</module>
+        <module>service-pay</module>
+        <module>service-cart</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 统一版本，避免冲突 -->
+        <dubbo.version>3.2.6</dubbo.version>
+        <pagehelper.version>1.4.3</pagehelper.version>
+        <hutool.version>5.8.23</hutool.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
+        <!-- Spring Boot Web核心（包含@Service等注解） -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- 自定义公共服务依赖 -->
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>common-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- ⭐ 显式声明 Dubbo，并排除 REST 协议 ⭐ -->
+
+        <!-- Dubbo Starter（排除REST协议） -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>3.2.6</version>
+            <version>${dubbo.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.dubbo</groupId>
@@ -46,66 +55,75 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- mybatis-plus的起步依赖 -->
+
+        <!-- MyBatis-Plus -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
-        <!-- mysql驱动 -->
+        <!-- MySQL驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- 配置处理器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 
+        <!-- 分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.4.3</version>
+            <version>${pagehelper.version}</version>
         </dependency>
 
-        <!-- 服务注册 -->
+        <!-- Nacos注册中心（仅保留1份，删除重复） -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- 流量控制 -->
+        <!-- Sentinel流量控制 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
+
+        <!-- 自定义模型依赖 -->
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>spzx-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- nacos作为注册中心的依赖 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- redis的起步依赖 -->
+
+        <!-- Redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+        <!-- 缓存 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+
+        <!-- Hutool工具类 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.23</version>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
-
 </project>

@@ -3,10 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!-- 核心：必须声明父工程，否则无法继承依赖 -->
     <parent>
         <groupId>com.atguigu</groupId>
         <artifactId>spzx-service</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <!-- 重要：如果父工程和子模块不在同一目录，需要指定relativePath -->
+        <!-- 比如父工程在上级目录，写：<relativePath>../pom.xml</relativePath> -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>service-user</artifactId>
@@ -15,18 +19,110 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 统一版本，避免冲突 -->
+        <dubbo.version>3.2.6</dubbo.version>
+        <pagehelper.version>1.4.3</pagehelper.version>
+        <hutool.version>5.8.23</hutool.version>
     </properties>
-     <dependencies>
-<!--         引入用戶原創調用模塊-->
-         <dependency>
-             <groupId>com.atguigu</groupId>
-             <artifactId>service-user-client</artifactId>
-             <version>1.0-SNAPSHOT</version>
-         </dependency>
-         <dependency>
-             <groupId>com.atguigu</groupId>
-             <artifactId>service-product-client</artifactId>
-             <version>1.0-SNAPSHOT</version>
-         </dependency>
-     </dependencies>
+
+    <dependencies>
+        <!-- Spring Boot Web核心（包含@Service等注解） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 自定义公共服务依赖 -->
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>common-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Dubbo Starter（排除REST协议） -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.dubbo</groupId>
+                    <artifactId>dubbo-rpc-rest</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- MyBatis-Plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-user-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-product-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- MySQL驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- 配置处理器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+
+        <!-- Nacos注册中心（仅保留1份，删除重复） -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- Sentinel流量控制 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <!-- 自定义模型依赖 -->
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>spzx-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- 缓存 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <!-- Hutool工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+    </dependencies>
 </project>
