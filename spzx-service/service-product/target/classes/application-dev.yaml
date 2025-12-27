@@ -42,7 +42,7 @@ dubbo:
     name: service-product
     qos-enable: true
     qos-port: 33333
-    register-mode: all # Explicitly register both interface and instance level
+    register-mode: interface # Explicitly register only interface level
     migration: FORCE_INTERFACE # Force interface-level discovery to avoid RestProtocol issues
   protocol:
     name: dubbo     # ✅ 明确使用 Dubbo RPC
