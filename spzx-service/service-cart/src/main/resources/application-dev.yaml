@@ -28,6 +28,7 @@ minio:
 dubbo:
   application:
     name: service-cart
+    register-mode: interface
     qos-enable: true
     qos-port: 44444
     service-discovery:

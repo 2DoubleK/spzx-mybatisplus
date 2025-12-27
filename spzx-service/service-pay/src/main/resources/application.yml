@@ -1,3 +1,9 @@
 spring:
   profiles:
     active: alipay
+
+dubbo:
+  application:
+    name: service-pay  # ✅ 修正：Dubbo应用名改为service-pay（之前是service-part）
+    register-mode: interface
+    qos-enable: true

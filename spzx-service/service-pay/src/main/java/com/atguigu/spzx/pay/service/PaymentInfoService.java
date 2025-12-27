@@ -5,5 +5,7 @@ import com.atguigu.spzx.model.vo.common.Result;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface PaymentInfoService extends IService<PaymentInfo> {
-    Result savePaymentInfo(String orderNo);
+    PaymentInfo savePaymentInfo(String orderNo);
+
+    String submitAlipay(String orderNo);
 }

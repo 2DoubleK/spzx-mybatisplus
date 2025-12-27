@@ -41,6 +41,7 @@ minio:
 dubbo:
   application:
     name: service-pay  # ✅ 修正：Dubbo应用名改为service-pay（之前是service-part）
+    register-mode: interface
     qos-enable: true
     qos-port: 44373
     service-discovery:
@@ -50,6 +51,7 @@ dubbo:
   protocol:
     name: dubbo
     port: 20885 # 修改端口，避免冲突
+    serialization: fastjson2 # 设置序列化方式，避免默认Hessian2问题
   consumer:
     check: false     # 启动时不检查提供者是否存在
     timeout: 3000    # 消费超时时间

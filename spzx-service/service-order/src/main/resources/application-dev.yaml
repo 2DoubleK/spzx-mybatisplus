@@ -27,18 +27,20 @@ minio:
 
 dubbo:
   application:
-    name: ervice-order
+    name: service-order
+    register-mode: interface
     qos-enable: true
     qos-port: 45678
     service-discovery:
       migration: FORCE_INTERFACE # Force interface-level discovery to avoid RestProtocol issues
   registry:
     address: nacos://localhost:8848
+  protocol:
+    name: dubbo
+    port: -1        # ✅ 随机端口
   consumer:
     check: false     # ✅ 启动时不强依赖 provider
     timeout: 3000
-    # ❌ 不要写 protocol,除非使用Restful风格接口
-    # ❌ 不要写 rest
 logging:
   level:
     org.apache.dubbo: DEBUG # 开启Dubbo调试日志
