@@ -1,0 +1,45 @@
+server:
+  port: 8514  # HTTP 端口（本服务自己的）
+
+spring:
+  application:
+    name: service-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+minio:
+  endpoint: http://169.254.19.248:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: spzx
+
+dubbo:
+  application:
+    name: ervice-order
+    qos-enable: true
+    qos-port: 45678
+    service-discovery:
+      migration: FORCE_INTERFACE # Force interface-level discovery to avoid RestProtocol issues
+  registry:
+    address: nacos://localhost:8848
+  consumer:
+    check: false     # ✅ 启动时不强依赖 provider
+    timeout: 3000
+    # ❌ 不要写 protocol,除非使用Restful风格接口
+    # ❌ 不要写 rest
+logging:
+  level:
+    org.apache.dubbo: DEBUG # 开启Dubbo调试日志
+    org.apache.dubbo.remoting: DEBUG # 开启通信层日志

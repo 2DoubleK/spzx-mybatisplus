@@ -1,0 +1,4 @@
+#生产环境文件
+spring:
+  profiles:
+    active: dev   #生效配置文件
